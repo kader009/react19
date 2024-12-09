@@ -1,4 +1,5 @@
 import { useFormStatus } from 'react-dom';
+import { submitForm } from './action';
 
 function Submit() {
   const { pending } = useFormStatus();
@@ -16,7 +17,7 @@ function Submit() {
 const UseFormStatus = () => {
   return (
     <div>
-      <form>
+      <form action={submitForm}>
         <Submit />
       </form>
     </div>
