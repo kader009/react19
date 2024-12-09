@@ -1,4 +1,4 @@
-import { useState, useTransition } from 'react';
+import { useState, useTransition } from 'react'; 
 
 const UseTransition = () => {
   const [name, SetName] = useState<string>('');
@@ -32,7 +32,7 @@ const UseTransition = () => {
       <button
         onClick={handleUpdate}
         disabled={isPending}
-        type="submit"
+        type="button"
         className="bg-black text-white rounded p-2"
       >
         {isPending ? 'Updating..' : 'Update'}
