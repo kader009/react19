@@ -3,11 +3,12 @@ import UseDataFetch from './pages/useDataFetch';
 import UseTransition from './pages/UseTransition';
 const App = () => {
   useEffect(() => {
-    document.title = 'home page';
+    document.title = 'Home page';
     return () => {
       document.title = 'product';
     };
   }, []);
+
   return (
     <div>
       <UseDataFetch />
