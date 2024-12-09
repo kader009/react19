@@ -3,10 +3,13 @@ import { useEffect, useRef } from 'react';
 const CustomElement = () => {
   const custom = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
-    const customEle = document.createElement('I am custom element');
-    custom.current.appendChild(customEle);
+    if (custom.current) {
+      const customEle = document.createElement('I');
+      customEle.textContent = 'I am a custom element';
+      custom.current.appendChild(customEle);
+    }
   }, []);
-  return <div ref={custom}></div>;
+  return <div ref={custom}/>;
 };
 
 export default CustomElement;
