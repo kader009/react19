@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 const CustomElement = () => {
-  const custom = useRef<HTMLDivElement | null>(null);
+  const custom = useRef<HTMLDivElement | null>(null); 
   useEffect(() => {
     if (custom.current) {
       const customEle = document.createElement('I');
