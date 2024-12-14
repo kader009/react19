@@ -4,7 +4,6 @@ import About from '../pages/About';
 import Home from '../pages/home/Home';
 import Setting from '../pages/home/Setting';
 
-
 const AppRoutes = () => {
   return (
     <BrowserRouter>

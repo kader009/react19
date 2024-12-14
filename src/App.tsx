@@ -3,6 +3,8 @@ import UseTransition from './pages/UseTransition';
 import UseRef from './pages/useRef';
 import CustomElement from './pages/CustomElement';
 import UseFormStatus from './pages/UseFormStatus';
+import { Link } from 'react-router';
+
 const App = () => {
   return (
     <div>
@@ -18,7 +20,11 @@ const App = () => {
       <CustomElement />
       <br />
       <br />
-      <UseFormStatus/>
+      <UseFormStatus />
+      <br />
+      <span className="text-blue-700 capitalize text-semibold">
+        <Link to={'/dashboard/setting'}>dashboard</Link>
+      </span>
     </div>
   );
 };
