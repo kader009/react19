@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { ChangeEvent, FormEvent, useState } from 'react';
 
 interface FormData {
@@ -23,7 +24,17 @@ const Setting = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(formData);
+
+    axios
+      .post(`http://localhost:5000/user`, formData)
+      .then((response) => {
+        console.log('Response:', response.data);
+      })
+      .catch((error) => {
+        console.error('Error:', error.message);
+      });
+
+    console.log('Form Data:', formData);
   };
 
   return (

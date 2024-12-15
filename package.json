@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.7.9",
     "babel-plugin-react-compiler": "^19.0.0-beta-37ed2a7-20241206",
     "express": "^4.21.2",
     "react": "19.0.0",
