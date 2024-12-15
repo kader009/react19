@@ -1,9 +1,28 @@
+import { useState } from "react";
+
+interface FormData {
+  name: string;
+  email: string;
+  password: string;
+}
+
+
 const Setting = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    password: "",
+  })
+
+const handleSubmit = () =>{
+
+}
+
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
         <form
-          // onSubmit={handleSubmit}
+          onSubmit={handleSubmit}
           className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
         >
           <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
