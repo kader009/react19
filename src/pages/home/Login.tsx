@@ -1,42 +1,5 @@
-import axios from 'axios';
-import { ChangeEvent, FormEvent, useState } from 'react';
-
-interface FormData {
-  name: string;
-  email: string;
-  password: string;
-}
-
-const Setting = () => {
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    password: '',
-  });
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    axios
-      .post(`http://localhost:5000/register`, formData)
-      .then((response) => {
-        console.log('Response:', response.data);
-      })
-      .catch((error) => {
-        console.error('Error:', error.message);
-      });
-
-    console.log('Form Data:', formData);
-  };
-
+const Login = () => {
+  const handleSubmit = () => {};
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -45,26 +8,6 @@ const Setting = () => {
           className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
         >
           <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
-
-          {/* Name Input */}
-          <div className="mb-4">
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Your name"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              required
-              onChange={handleChange}
-              value={formData.name}
-            />
-          </div>
 
           {/* Email Input */}
           <div className="mb-4">
@@ -81,8 +24,6 @@ const Setting = () => {
               placeholder="Your email"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               required
-              onChange={handleChange}
-              value={formData.email}
             />
           </div>
 
@@ -101,8 +42,6 @@ const Setting = () => {
               placeholder="Your password"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               required
-              onChange={handleChange}
-              value={formData.password}
             />
           </div>
 
@@ -119,4 +58,4 @@ const Setting = () => {
   );
 };
 
-export default Setting;
+export default Login;
