@@ -1,5 +1,39 @@
+import axios from 'axios';
+import { ChangeEvent, FormEvent, useState } from 'react';
+
+interface FormData {
+  email: string;
+  password: string;
+}
+
 const Login = () => {
-  const handleSubmit = () => {};
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const [formData, setFormData] = useState<FormData>({
+    email: '',
+    password: '',
+  });
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    axios
+      .post(`http://localhost:5000/register`, formData)
+      .then((response) => {
+        console.log('Response:', response.data);
+      })
+      .catch((error) => {
+        console.error('Error:', error.message);
+      });
+
+    console.log('Form Data:', formData);
+  };
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -7,7 +41,7 @@ const Login = () => {
           onSubmit={handleSubmit}
           className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
         >
-          <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
+          <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
 
           {/* Email Input */}
           <div className="mb-4">
@@ -24,6 +58,8 @@ const Login = () => {
               placeholder="Your email"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               required
+              onChange={handleChange}
+              value={formData.email}
             />
           </div>
 
