@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { useNavigate } from 'react-router';
 
 interface FormData {
   email: string;
@@ -7,6 +8,7 @@ interface FormData {
 }
 
 const Login = () => {
+  const navigate = useNavigate()
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prev) => ({
@@ -24,9 +26,11 @@ const Login = () => {
     event.preventDefault();
 
     axios
-      .post(`http://localhost:5000/register`, formData)
+      .post(`http://localhost:5000/login`, formData)
       .then((response) => {
         console.log('Response:', response.data);
+
+        navigate('/')
       })
       .catch((error) => {
         console.error('Error:', error.message);
@@ -78,6 +82,8 @@ const Login = () => {
               placeholder="Your password"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               required
+              onChange={handleChange}
+              value={formData.password}
             />
           </div>
 
