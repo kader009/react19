@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 interface FormData {
   name: string;
@@ -6,17 +6,25 @@ interface FormData {
   password: string;
 }
 
-
 const Setting = () => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    password: "",
-  })
+    name: '',
+    email: '',
+    password: '',
+  });
 
-const handleSubmit = () =>{
-
-}
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(formData);
+  };
 
   return (
     <div>
@@ -42,6 +50,8 @@ const handleSubmit = () =>{
               placeholder="Your name"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               required
+              onChange={handleChange}
+              value={formData.name}
             />
           </div>
 
@@ -60,6 +70,8 @@ const handleSubmit = () =>{
               placeholder="Your email"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               required
+              onChange={handleChange}
+              value={formData.email}
             />
           </div>
 
@@ -78,6 +90,8 @@ const handleSubmit = () =>{
               placeholder="Your password"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               required
+              onChange={handleChange}
+              value={formData.password}
             />
           </div>
 
