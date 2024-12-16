@@ -29,6 +29,7 @@ const Setting = () => {
       .post(`http://localhost:5000/register`, formData)
       .then((response) => {
         console.log('Response:', response.data);
+        // response data
       })
       .catch((error) => {
         console.error('Error:', error.message);
