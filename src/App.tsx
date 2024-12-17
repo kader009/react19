@@ -8,7 +8,7 @@ import { Link } from 'react-router';
 const App = () => {
   return (
     <div>
-      <UseDataFetch />
+      <UseDataFetch /> 
       <br />
       <br />
       <UseTransition />

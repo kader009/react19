@@ -1,5 +1,5 @@
 const Home = () => {
-  return <div>Home Page for dashboard and new for gitlence</div>; 
+  return <div>Home Page for dashboard</div>; 
 };
 
 export default Home;
