@@ -35,7 +35,8 @@ const Setting = () => {
         console.error('Error:', error.message);
       });
 
-    console.log('Form Data:', formData);
+    console.log('Form Data:', formData); 
+    // form response here
   };
 
   return (
