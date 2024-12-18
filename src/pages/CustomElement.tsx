@@ -5,7 +5,7 @@ const CustomElement = () => {
   useEffect(() => {
     if (custom.current) {
       const customEle = document.createElement('I');
-      customEle.textContent = 'I am a custom element';
+      customEle.textContent = 'I am a custom element for test';
       custom.current.appendChild(customEle);
     }
   }, []);
