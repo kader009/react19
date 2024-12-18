@@ -1,4 +1,4 @@
-const Home = () => {
+const Home = () => { 
   return <div>Home Page for dashboard</div>; 
 };
 
