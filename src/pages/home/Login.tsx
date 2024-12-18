@@ -8,7 +8,7 @@ interface FormData {
 }
 
 const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prev) => ({
@@ -26,11 +26,11 @@ const Login = () => {
     event.preventDefault();
 
     axios
-      .post(`http://localhost:5000/login`, formData)
+      .post(`http://localhost:5000/login`, formData, { withCredentials: true })
       .then((response) => {
         console.log('Response:', response.data);
 
-        navigate('/')
+        navigate('/');
       })
       .catch((error) => {
         console.error('Error:', error.message);
