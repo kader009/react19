@@ -26,7 +26,7 @@ const Login = () => {
     event.preventDefault();
 
     axios
-      .post(`http://localhost:5000/login`, formData, { withCredentials: true })
+      .post(`http://localhost:5000/api/user/login`, formData, { withCredentials: true })
       .then((response) => {
         console.log('Response:', response.data);
 
@@ -93,7 +93,7 @@ const Login = () => {
             type="submit"
             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
-            Register
+            Login
           </button>
         </form>
       </div>
