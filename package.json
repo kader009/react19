@@ -13,6 +13,7 @@
     "axios": "^1.7.9",
     "babel-plugin-react-compiler": "^19.0.0-beta-37ed2a7-20241206",
     "express": "^4.21.2",
+    "jwt-decode": "^4.0.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router": "^7.0.2"

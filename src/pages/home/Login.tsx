@@ -1,10 +1,17 @@
 import axios from 'axios';
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { jwtDecode } from 'jwt-decode';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 interface FormData {
   email: string;
   password: string;
+}
+
+interface DecodedToken {
+  userId: string;
+  name: string;
+  email: string;
 }
 
 const Login = () => {
@@ -17,36 +24,53 @@ const Login = () => {
     }));
   };
 
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<FormData>({ 
     email: '',
     password: '',
   });
+  const [name, Setname] = useState<string | null>(null)
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  useEffect(() => {
+    // Retrieve the stored name from localStorage
+    const storedName = localStorage.getItem('name');
+    if (storedName) {
+      Setname(storedName);
+    }
+  }, []);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => { 
     event.preventDefault();
-  
+
     axios
-      .post(`http://localhost:5000/api/user/login`, formData, {headers: {
-        'Content-Type': 'application/json',
-      },
-        withCredentials: true, // Include credentials in the request (useful for cookies if needed)
+      .post(`http://localhost:5000/api/user/login`, formData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: true, // Include credentials in the request (useful for cookies if needed) 
       })
       .then((response) => {
         console.log('Response:', response.data);
-  
+
         // Assuming the token is in response.data.token
-        const newToken = response.data.token;
-        localStorage.setItem('token', newToken); // Store the new token in local storage
-  
+        const { token } = response.data;
+        localStorage.setItem('token', token); // Store the new token in local storage
+
+        const decodedToken = jwtDecode<DecodedToken>(token);
+        console.log('User Details:', decodedToken);
+        console.log('Email:', decodedToken.email);
+        console.log('Name:', decodedToken.name);
+        // Setname(decodedToken.name)
+        localStorage.setItem('name',decodedToken.name) 
+
         navigate('/');
       })
       .catch((error) => {
         console.error('Error:', error.message);
       });
-  
+
     console.log('Form Data:', formData);
   };
-  
+
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -104,6 +128,9 @@ const Login = () => {
             Login
           </button>
         </form>
+        <div>
+          {name && <p>Welcome {name}</p>}
+        </div>
       </div>
     </div>
   );
