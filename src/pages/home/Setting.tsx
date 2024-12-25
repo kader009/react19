@@ -26,7 +26,7 @@ const Setting = () => {
     event.preventDefault();
 
     axios
-      .post(`http://localhost:5000/register`, formData)
+      .post(`http://localhost:5000/api/user/register`, formData)
       .then((response) => {
         console.log('Response:', response.data);
         // response data

@@ -24,21 +24,29 @@ const Login = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+  
     axios
-      .post(`http://localhost:5000/api/user/login`, formData, { withCredentials: true })
+      .post(`http://localhost:5000/api/user/login`, formData, {headers: {
+        'Content-Type': 'application/json',
+      },
+        withCredentials: true, // Include credentials in the request (useful for cookies if needed)
+      })
       .then((response) => {
         console.log('Response:', response.data);
-
+  
+        // Assuming the token is in response.data.token
+        const newToken = response.data.token;
+        localStorage.setItem('token', newToken); // Store the new token in local storage
+  
         navigate('/');
       })
       .catch((error) => {
         console.error('Error:', error.message);
       });
-
+  
     console.log('Form Data:', formData);
-    // get form data
   };
+  
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
