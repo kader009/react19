@@ -1,4 +1,12 @@
-import { useEffect, useState } from 'react'; 
+import { useEffect, useState } from 'react';   
+/**
+ * Home component
+ * 
+ * This component represents the home page of the dashboard.
+ * It retrieves the user's name from local storage and displays it.
+ * 
+ * @returns {JSX.Element} The rendered home page component.
+ */
 
 const Home = () => {
   const [name, Setname] = useState<string | null>(null); 
