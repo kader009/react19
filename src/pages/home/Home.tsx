@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'; 
 
 const Home = () => {
-  const [name, Setname] = useState<string | null>(null);
+  const [name, Setname] = useState<string | null>(null); 
   useEffect(() => {
     // Retrieve the stored name from localStorage
     const storedName = localStorage.getItem('name');
@@ -13,10 +13,17 @@ const Home = () => {
   return (
     <div>
       <h1>Home Page for dashboard only</h1>
+      <p>this is awesome</p>
 
       <br />
       <br />
-      <div>{name && <p>Welcome {name}</p>}</div>
+      <div>
+        {name && (
+          <p>
+            Welcome to this site: <span className='text-blue-700 capitalize font-semibold'>{name} 😉</span>
+          </p>
+        )}
+      </div>
     </div>
   );
 };

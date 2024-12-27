@@ -24,11 +24,11 @@ const Login = () => {
     }));
   };
 
-  const [formData, setFormData] = useState<FormData>({ 
+  const [formData, setFormData] = useState<FormData>({
     email: '',
     password: '',
   });
-  const [name, Setname] = useState<string | null>(null)
+  const [name, Setname] = useState<string | null>(null);
 
   useEffect(() => {
     // Retrieve the stored name from localStorage
@@ -38,7 +38,7 @@ const Login = () => {
     }
   }, []);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => { 
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     axios
@@ -46,7 +46,7 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        withCredentials: true, // Include credentials in the request (useful for cookies if needed) 
+        withCredentials: true, // Include credentials in the request (useful for cookies if needed)
       })
       .then((response) => {
         console.log('Response:', response.data);
@@ -60,7 +60,7 @@ const Login = () => {
         console.log('Email:', decodedToken.email);
         console.log('Name:', decodedToken.name);
         // Setname(decodedToken.name)
-        localStorage.setItem('name',decodedToken.name) 
+        localStorage.setItem('name', decodedToken.name);
 
         navigate('/');
       })
@@ -128,9 +128,7 @@ const Login = () => {
             Login
           </button>
         </form>
-        <div>
-          {name && <p>Welcome {name}</p>}
-        </div>
+        <div>{name && <p>Welcome {name}</p>}</div>
       </div>
     </div>
   );
