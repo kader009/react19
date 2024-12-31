@@ -1,15 +1,7 @@
-import { useEffect, useState } from 'react';   
-/**
- * Home component
- * 
- * This component represents the home page of the dashboard.
- * It retrieves the user's name from local storage and displays it.
- * 
- * @returns {JSX.Element} The rendered home page component.
- */
+import { useEffect, useState } from 'react';
 
 const Home = () => {
-  const [name, Setname] = useState<string | null>(null); 
+  const [name, Setname] = useState<string | null>(null);
   useEffect(() => {
     // Retrieve the stored name from localStorage
     const storedName = localStorage.getItem('name');
@@ -19,7 +11,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className='min-h-screen w-full text-center'>
       <h1>Home Page for dashboard only</h1>
       <p>this is awesome</p>
 
@@ -28,7 +20,10 @@ const Home = () => {
       <div>
         {name && (
           <p>
-            Welcome to this site: <span className='text-blue-700 capitalize font-semibold'>{name} 😉</span>
+            Welcome to this site:{' '}
+            <span className="text-blue-700 capitalize font-semibold">
+              {name} 😉
+            </span>
           </p>
         )}
       </div>
