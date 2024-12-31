@@ -13,7 +13,6 @@ const Home = () => {
   return (
     <div className='min-h-screen w-full text-center'>
       <h1>Home Page for dashboard only</h1>
-      <p>this is awesome</p>
 
       <br />
       <br />
