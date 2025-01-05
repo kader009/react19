@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     <div className='min-h-screen w-full text-center'>
-      <h1>Home Page for dashboard only</h1>
+      <h1>Home Page for dashboard only for who want to watch</h1>
 
       <br />
       <br />
