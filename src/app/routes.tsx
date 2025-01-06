@@ -5,6 +5,15 @@ import Home from '../pages/home/Home';
 import Setting from '../pages/home/Setting';
 import Login from '../pages/home/Login';
 
+/**
+ * AppRoutes component
+ * 
+ * This component sets up the routing for the application using React Router.
+ * It defines the routes and their corresponding components.
+ * 
+ * @returns {JSX.Element} The rendered routes for the application.
+ */
+
 const AppRoutes = () => {
   return (
     <BrowserRouter>
