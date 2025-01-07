@@ -1,3 +1,12 @@
+/**
+ * Latest component
+ * 
+ * This component represents the latest page of the application.
+ * It displays a heading and some content.
+ * 
+ * @returns {JSX.Element} The rendered latest page component.
+ */
+
 const Latest = () => {
   return (
     <div>
