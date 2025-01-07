@@ -1,3 +1,5 @@
+import React from 'react';
+
 /**
  * Latest component
  * 
@@ -7,7 +9,7 @@
  * @returns {JSX.Element} The rendered latest page component.
  */
 
-const Latest = () => {
+const Latest = (): React.JSX.Element => {
   return (
     <div>
       <h1>Latest Page</h1>
