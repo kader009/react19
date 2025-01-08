@@ -1,4 +1,4 @@
-import axios from 'axios'; 
+import axios from 'axios';
 import { ChangeEvent, FormEvent, useState } from 'react';
 
 interface FormData {
@@ -8,15 +8,14 @@ interface FormData {
 }
 
 const Setting = () => {
-
   /**
    * Handles the change event for input fields.
-   * 
+   *
    * @param {ChangeEvent<HTMLInputElement>} event - The change event object.
    */
-  
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
+    const { name, value } = event.target; // for name a value
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -42,7 +41,7 @@ const Setting = () => {
         console.error('Error:', error.message);
       });
 
-    console.log('Form Data:', formData); 
+    console.log('Form Data:', formData);
     // form response here
   };
 
