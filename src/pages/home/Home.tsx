@@ -19,7 +19,7 @@ const Home = () => {
       <div>
         {name && (
           <p>
-            Welcome to this site:{' '}
+            Welcome to this site awesome: 
             <span className="text-blue-700 capitalize font-semibold">
               {name} 😉
             </span>
